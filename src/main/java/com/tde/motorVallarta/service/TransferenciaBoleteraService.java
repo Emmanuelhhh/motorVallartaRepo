@@ -40,7 +40,7 @@ public class TransferenciaBoleteraService {
      * a las tablas destino correspondientes. Después de insertarlos,
      * los elimina de la tabla origen.
      */
-    @Transactional("readingCardTransactionManager") // <-- usa el transaction manager de Vallarta
+    @Transactional("readingTransactionManager") // <-- usa el transaction manager de Vallarta
     public void transferir() {
         List<TblDescargaViaxerBoleteraExp> registros = (List<TblDescargaViaxerBoleteraExp>) origenRepo.findTopByVarControl();
 

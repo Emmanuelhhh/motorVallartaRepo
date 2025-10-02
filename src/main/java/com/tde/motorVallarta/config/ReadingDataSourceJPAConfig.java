@@ -43,7 +43,7 @@ public class ReadingDataSourceJPAConfig {
             EntityManagerFactoryBuilder builder) {
         return builder
         		.dataSource(origenDataSource)
-                .packages("com.tde.motorDBInelibus.persistence.origin")
+                .packages("com.tde.motorVallarta.persistence.origin")
               //  .properties(Collections.singletonMap("hibernate.dialect", "org.hibernate.dialect.SQLServer2012Dialect"))
                 .build();
     }

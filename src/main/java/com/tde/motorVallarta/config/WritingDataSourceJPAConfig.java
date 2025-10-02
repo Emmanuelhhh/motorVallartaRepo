@@ -41,7 +41,7 @@ public class WritingDataSourceJPAConfig {
             EntityManagerFactoryBuilder builder) {
         return builder
         		.dataSource(destinoDataSource)
-                .packages("com.tde.motorDBInelibus.persistence.destination")
+                .packages("com.tde.motorVallarta.persistence.destination")
                 .properties(Collections.singletonMap("hibernate.dialect", "org.hibernate.dialect.SQLServer2012Dialect"))
                 .build();
     }
