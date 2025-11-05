@@ -13,7 +13,7 @@ spring:
       
     
     destination:
-      jdbc-url: jdbc:sqlserver://131.1.0.93;databaseName=INTELIBUS;encrypt=true;trustServerCertificate=true
+      jdbc-url: jdbc:sqlserver://131.1.0.112;databaseName=INTELIBUS;encrypt=true;trustServerCertificate=true
       username: sa
       password: sa
       driver-class-name: com.microsoft.sqlserver.jdbc.SQLServerDriver 

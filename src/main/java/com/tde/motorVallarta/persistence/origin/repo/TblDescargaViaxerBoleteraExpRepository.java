@@ -8,7 +8,7 @@ import org.springframework.stereotype.Repository;
 @Repository
 public interface TblDescargaViaxerBoleteraExpRepository extends JpaRepository<TblDescargaViaxerBoleteraExp, Integer> {
 
-	@Query(value = "SELECT TOP (1) * " +
+	@Query(value = "SELECT TOP (1000) * " +
             "FROM [Vallarta].[dbo].[tblDescarga_Viaxer_BOLETERA_Exp] " +
             "WHERE  1 = 1" +
             "ORDER BY id", 

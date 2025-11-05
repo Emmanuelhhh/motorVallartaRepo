@@ -5,7 +5,7 @@ plugins {
 }
 
 group = 'com.tde.apiVallarta'
-version = '0.0.1-SNAPSHOT'
+version = '0.0.2-SNAPSHOT'
 description = 'Proyecto para enviar informacion de una bd origen a una destino en distintas tablas'
 
 java {

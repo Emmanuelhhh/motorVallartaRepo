@@ -11,7 +11,7 @@ import java.time.LocalDateTime;
 @Getter
 @Setter
 @Entity
-@Table(name = "tblDescargasAVL")
+@Table(name = "tbldescargasavl")
 public class TblDescargasAvl implements Serializable {
 
     /**
@@ -23,57 +23,42 @@ public class TblDescargasAvl implements Serializable {
     @Column(name = "id", nullable = false)
     private Long id;
 
-    @Column(name = "intTipoAVL")
-    private Integer intTipoAvl;
+    @Column(name = "inttipoavl")
+    private Integer tipoAvl;
 
-    @Column(name = "strModemID", length = 50)
-    private String strModemId;
+    @Column(name = "strmodemid", length = 50)
+    private String idModem;
 
-    @Column(name = "fLongitud_grad")
-    private Double fLongitudGrad;
+    @Column(name = "flongitud_grad")
+    private Double longitudGrad;
 
-    @Column(name = "fLatitud_grad")
-    private Double fLatitudGrad;
+    @Column(name = "flatitud_grad")
+    private Double latidudGrad;
 
-    @Column(name = "intVelocidad")
-    private Integer intVelocidad;
+    @Column(name = "intvelocidad")
+    private Integer velocidad;
 
-    @Column(name = "intAltitud")
-    private Integer intAltitud;
+    @Column(name = "intnum_sat")
+    private Integer numSat;
 
-    @Column(name = "intNum_Sat")
-    private Integer intNumSat;
 
-    @Column(name = "intHeading")
-    private Integer intHeading;
+    @Column(name = "dfecha_hora_sat")
+    private LocalDateTime fechaHoraSat;
 
-    @Column(name = "dFecha_Hora_SAT")
-    private LocalDateTime dFechaHoraSat;
+    @Column(name = "inttipo_evento")
+    private Integer tipoEvento;
 
-    @Column(name = "intTipo_Evento")
-    private Integer intTipoEvento;
+    @Column(name = "intvariable1")
+    private Integer variable1;
 
-    @Column(name = "intVariable1")
-    private Integer intVariable1;
 
-    @Column(name = "intVariable2")
-    private Integer intVariable2;
+    @Column(name = "dfechahoracomputadora")
+    private LocalDateTime fechaHoraComputadora;
 
-    @Column(name = "intVariable3")
-    private Integer intVariable3;
+    @Column(name = "intvarcontrol")
+    private Integer varControl;
 
-    @Column(name = "intVariable4")
-    private Integer intVariable4;
 
-    @Column(name = "dFechaHoraComputadora")
-    private LocalDateTime dFechaHoraComputadora;
-
-    @Column(name = "intVarControl")
-    private Integer intVarControl;
-
-    @Column(name = "intId_Asignacion")
-    private Long intIdAsignacion;
-
-    @Column(name = "intStatus")
+    @Column(name = "intstatus")
     private Integer intStatus;
 }

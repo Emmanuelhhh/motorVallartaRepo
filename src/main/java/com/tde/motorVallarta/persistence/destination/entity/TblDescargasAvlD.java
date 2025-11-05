@@ -9,64 +9,50 @@ import java.time.LocalDateTime;
 @Getter
 @Setter
 @Entity
-@Table(name = "tblDescargasAVL")
+@Table(name = "tblDescargasAVL_Boletera")
 public class TblDescargasAvlD {
 
-    @Id
-    @Column(name = "id", nullable = false)
-    private Long id;
+	 @Id
+	 @Column(name = "id")
+	 private Long id;
 
-    @Column(name = "intTipoAVL")
-    private Integer intTipoAvl;
+    @Column(name = "inttipoavl")
+    private Integer tipoAvl;
 
-    @Column(name = "strModemID", length = 50)
-    private String strModemId;
+    @Column(name = "strmodemid", length = 50)
+    private String modemId;
 
-    @Column(name = "fLongitud_grad")
-    private Double fLongitudGrad;
+    @Column(name = "flongitud_grad")
+    private Double longitudGrad;
 
-    @Column(name = "fLatitud_grad")
-    private Double fLatitudGrad;
+    @Column(name = "flatitud_grad")
+    private Double latitudGrad;
 
-    @Column(name = "intVelocidad")
-    private Integer intVelocidad;
+    @Column(name = "intvelocidad")
+    private Integer velocidad;
 
-    @Column(name = "intAltitud")
-    private Integer intAltitud;
+    @Column(name = "intnum_sat")
+    private Integer numSat;
 
-    @Column(name = "intNum_Sat")
-    private Integer intNumSat;
+  
+    @Column(name = "dfecha_hora_sat")
+    private LocalDateTime fechaHoraSat;
 
-    @Column(name = "intHeading")
-    private Integer intHeading;
+    @Column(name = "inttipo_evento")
+    private Integer tipoEvento;
 
-    @Column(name = "dFecha_Hora_SAT")
-    private LocalDateTime dFechaHoraSat;
+    @Column(name = "intvariable1")
+    private Integer variable1;
 
-    @Column(name = "intTipo_Evento")
-    private Integer intTipoEvento;
-
-    @Column(name = "intVariable1")
-    private Integer intVariable1;
-
-    @Column(name = "intVariable2")
-    private Integer intVariable2;
-
-    @Column(name = "intVariable3")
-    private Integer intVariable3;
-
-    @Column(name = "intVariable4")
-    private Integer intVariable4;
-
-    @Column(name = "dFechaHoraComputadora")
+  
+    @Column(name = "dfechahoracomputadora")
     private LocalDateTime dFechaHoraComputadora;
 
-    @Column(name = "intVarControl")
+    @Column(name = "intvarcontrol")
     private Integer intVarControl;
 
-    @Column(name = "intId_Asignacion")
-    private Long intIdAsignacion;
+ 
 
-    @Column(name = "intStatus")
+    @Column(name = "intstatus")
     private Integer intStatus;
 }

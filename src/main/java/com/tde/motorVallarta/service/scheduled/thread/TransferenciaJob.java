@@ -1,6 +1,5 @@
 package com.tde.motorVallarta.service.scheduled.thread;
 
-
 import java.util.concurrent.Executors;
 import java.util.concurrent.ScheduledExecutorService;
 import java.util.concurrent.TimeUnit;
@@ -10,6 +9,9 @@ import org.springframework.scheduling.annotation.Scheduled;
 import org.springframework.stereotype.Component;
 
 import com.tde.motorVallarta.service.TransferenciaBoleteraService;
+import com.tde.motorVallarta.service.AVLTransferenciaService;
+import com.tde.motorVallarta.service.MSTranferenciaService;
+import com.tde.motorVallarta.service.OdometroTransferenciaService;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -17,35 +19,44 @@ import org.slf4j.LoggerFactory;
 @Component
 public class TransferenciaJob {
 
-    @Autowired
-    private TransferenciaBoleteraService transferenciaBoleteraService;
+	@Autowired
+	private TransferenciaBoleteraService transferenciaBoleteraService;
 
-    private final ScheduledExecutorService scheduledExecutorService = Executors.newScheduledThreadPool(2);
+	@Autowired
+	private AVLTransferenciaService avlTransferenciaService;
 
-    private static final Logger log = LoggerFactory.getLogger(TransferenciaJob.class);
+	// @Autowired
+	// private MSTranferenciaService msTranferenciaService;
 
-    /**
-     * Ejecuta el job de transferencia cada minuto (puedes ajustar el cron).
-     * Expresión cron: segundo minuto hora díaMes mes díaSemana
-     */
-    @Scheduled(cron = "0 * * * * ?")
-    public void ejecutarTransferencia() {
-        log.info("Inicia proceso de transferencia de datos (motorVallarta)");
+	@Autowired
+	private OdometroTransferenciaService odometroTransferenciaService;
 
-        // Ejecuta inmediatamente
-        scheduledExecutorService.schedule(
-            () -> executeSafely(() -> transferenciaBoleteraService.transferir()), 
-            0, TimeUnit.SECONDS
-        );
+	private final ScheduledExecutorService scheduledExecutorService = Executors.newScheduledThreadPool(2);
 
-        log.info("Tarea programada");
-    }
+	private static final Logger log = LoggerFactory.getLogger(TransferenciaJob.class);
 
-    private synchronized void executeSafely(Runnable task) {
-        try {
-            task.run();
-        } catch (Exception e) {
-            log.error("Error ejecutando tarea de transferencia", e);
-        }
-    }
+	/**
+	 * Ejecuta el job de transferencia cada minuto (puedes ajustar el cron).
+	 * Expresión cron: segundo minuto hora díaMes mes díaSemana
+	 */
+	@Scheduled(cron = "0 * * * * ?")
+	public void ejecutarTransferencia() {
+		log.info("Inicia proceso de transferencia de datos (motorVallarta)");
+
+		//Ejecuta inmediatamente
+		scheduledExecutorService.schedule(() -> executeSafely(() -> transferenciaBoleteraService.transferir()), 0,TimeUnit.SECONDS);
+		scheduledExecutorService.schedule(() -> executeSafely(() -> avlTransferenciaService.transferirDatos(9)), 0,TimeUnit.SECONDS);
+	
+		//scheduledExecutorService.schedule(() -> executeSafely(() -> msTranferenciaService.minisigotransferirDatos(9)), 0, TimeUnit.SECONDS);
+		scheduledExecutorService.schedule(() -> executeSafely(() -> odometroTransferenciaService.transferirDatos(9)), 0,TimeUnit.SECONDS);
+		log.info("Tarea programada");
+	}
+
+	private synchronized void executeSafely(Runnable task) {
+		try {
+			task.run();
+		} catch (Exception e) {
+			log.error("Error ejecutando tarea de transferencia", e);
+		}
+	}
 }
